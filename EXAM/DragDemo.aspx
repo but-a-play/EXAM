@@ -22,6 +22,10 @@
             border: 1px solid gray;
             background-color:beige;
         }
+
+        .seat .stu{
+            background-color:yellowgreen;
+        }
     </style>
     <script src="scripts/jquery.min.js"></script>
 </head>
@@ -30,14 +34,14 @@
         <div class="seats" style="width:500px;height:400px;border:1px solid black">
             <div class="seat" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div class="stu" id="stu" draggable="true" ondragstart="drag(event)">
-                    替换
+                    A
                 </div>
             </div>
         </div>
 
-        <div class="stus"style="width:300px;height:200px;border:1px solid red">
+        <div class="stus"style="width:300px;height:200px;border:1px solid red" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="stu" id="stu1" draggable="true" ondragstart="drag(event)">
-                拖拽
+                B
             </div>
         </div>
     </form>
@@ -53,11 +57,16 @@
         function drop(ev) {
             ev.preventDefault();
             var data = ev.dataTransfer.getData("Text");
-            var oldStu = document.getElementById(ev.target.id);//替换
-            var temp = oldStu;
-            var newStu = document.getElementById(data);//拖拽
-            $(newStu).replaceAll(oldStu);
-            $(temp).replaceAll(newStu);
+            var oldStu = document.getElementById(ev.target.id);//stu
+            var temp = ev.target.id;
+            var tempHtml = $(oldStu).html();
+            var newStu = document.getElementById(data);//stu1
+            $(oldStu).attr("id", data);
+            $(newStu).attr("id", temp);
+            $(oldStu).html($(newStu).html());
+            $(newStu).html(tempHtml);
+
+            
 
         }
     </script>

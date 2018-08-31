@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="CustomSeat.aspx" />
     <Content Include="DataInsert.aspx" />
     <Content Include="DragDemo.aspx" />
     <Content Include="GradesDataPage.aspx" />
@@ -103,6 +104,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="data\数据.xls" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,6 +134,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomSeat.aspx.cs">
+      <DependentUpon>CustomSeat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomSeat.aspx.designer.cs">
+      <DependentUpon>CustomSeat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataInsert.aspx.cs">
       <DependentUpon>DataInsert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
